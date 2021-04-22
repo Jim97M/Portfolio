@@ -1,1 +1,1 @@
-gitPersonal Portfolio
+Personal Portfolio
