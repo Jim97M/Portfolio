@@ -10,11 +10,9 @@ function ImageSection() {
                 <img src={resume} alt=""/>
             </div>
             <div className="right-content">
-                <h4>I am <span>Lorem Ipsum</span></h4>
+                <h4>I am <span>James Masika Wabuya</span></h4>
                 <p className="paragraph">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, natus quas vero enim 
-                    praesentium delectus est id fugiat ab libero adipisci recusandae at maxime veritatis! 
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi, nesciunt.
+                    I am a Software Developer based Nairobi Experienced in Web and Mobile Application Development as a
                     
                 </p>
                 <div className="about-info">
@@ -27,11 +25,11 @@ function ImageSection() {
                         <p>Service</p>
                     </div>
                     <div className="info">
-                        <p>: Lorem Ipsum</p>
-                        <p>: 36</p>
-                        <p>: Spainsh </p>
-                        <p>: Spanish, French, English </p>
-                        <p>: London, United Kingdom</p>
+                        <p>: James Masika Wabuya</p>
+                        <p>: 23</p>
+                        <p>: Kenyan</p>
+                        <p>: English </p>
+                        <p>:Nairobi, Kenya</p>
                         <p>: Freelance</p>
                     </div>
                 </div>
