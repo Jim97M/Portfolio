@@ -12,20 +12,18 @@ function HomePage() {
                 <Particle />
             </div>
             <div className="typography">
-                <h1>Hi, I'm <span>Lorem Ipsum</span></h1>
+                <h1>Hi, I'm <span>James Masika Wabuya</span></h1>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Atque nihil voluptates ea dolore vel 
-                    repellat? Quia tenetur non quam exercitationem. Lorem ipsum dolor sit amet.
+                   I'm a 23year old Software Developer 
                 </p>
                 <div className="icons">
-                    <a href="https://codepen.io/pen/" className="icon">
+                    <a href="#" className="icon">
                         <TwitterIcon />
                     </a>
-                    <a href="https://codepen.io/pen/" className="icon i-github">
+                    <a href="#" className="icon i-github">
                         <GithubIcon />
                     </a>
-                    <a href="https://codepen.io/pen/" className="icon i-youtube">
+                    <a href="#" className="icon i-youtube">
                         <YoutubeIcon />
                     </a>
                 </div>
