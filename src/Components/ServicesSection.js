@@ -30,6 +30,13 @@ function ServicesSection() {
                         title={'Game Development'} 
                         paragraph={'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tenetur ratione quod.'}
                     />
+                    <div className="mid-card">
+                        <ServiceCard 
+                            image={intelligence} 
+                            title={'Artificial Intelligence'} 
+                            paragraph={'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tenetur ratione quod.'}
+                    />
+                    </div>
                 </div>
             </ServicesSectionStyled>
         </InnerLayout>
