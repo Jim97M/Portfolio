@@ -7,7 +7,7 @@ import img3 from '../img/portImages/maya-3.jpg';
 const portfolios = [
     {
         id: 1,
-        category: 'CSS',
+        category: 'JavaScript PHP',
         image: css1,
         link1: 'https://www.google.com',
         link2: 'https://www.google.com',
@@ -16,7 +16,7 @@ const portfolios = [
     },
     {
         id: 2,
-        category: 'Python',
+        category: 'Django',
         image: img3,
         link1: 'https://www.google.com',
         link2: 'https://www.google.com',
@@ -25,7 +25,7 @@ const portfolios = [
     },
     {
         id: 3,
-        category: 'Javascript',
+        category: 'Laravel',
         image: img3,
         link1: 'https://www.google.com',
         link2: 'https://www.google.com',
@@ -34,7 +34,7 @@ const portfolios = [
     },
     {
         id: 4,
-        category: 'Animation',
+        category: 'React Node',
         image: img2,
         link1: 'https://www.google.com',
         link2: 'https://www.google.com',
@@ -43,7 +43,7 @@ const portfolios = [
     },
     {
         id: 5,
-        category: 'Animation',
+        category: 'AI Model',
         image: img2,
         link1: 'https://www.google.com',
         link2: 'https://www.google.com',
@@ -52,7 +52,7 @@ const portfolios = [
     },
     {
         id: 6,
-        category: 'React JS',
+        category: 'Algorithm and Data Structures',
         image: react1,
         link1: 'https://www.google.com',
         link2: 'https://www.google.com',
@@ -61,7 +61,7 @@ const portfolios = [
     },
     {
         id: 7,
-        category: 'CSS',
+        category: 'Game Development',
         image: css2,
         link1: 'https://www.google.com',
         link2: 'https://www.google.com',
