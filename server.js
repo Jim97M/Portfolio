@@ -5,8 +5,8 @@ import nodemailer from 'nodemailer';
 import { createRequire } from 'module';
 import path from 'path';
 // import creds from './nodemon.json'
- import { dirname } from 'path';
- import { fileURLToPath } from 'url';
+ import path from 'path';
+//  import { fileURLToPath } from 'url';
  import serviceRouter from "./routes/service.router.js";
  import skillRouter from "./routes/skill.route.js";
  import resumeRouter from "./routes/resume.route.js";
@@ -17,10 +17,10 @@ import path from 'path';
 
 import { dir } from 'console';
 
-const require = createRequire(import.meta.url)
-const creds = require("./nodemon.json")
- const __filename = fileURLToPath(import.meta.url);
- const __dirname = dirname(__filename);
+// const require = createRequire(import.meta.url)
+import creds from "./nodemon.json"
+//  const __filename = fileURLToPath(import.meta.url);
+//  const __dirname = dirname(__filename);
 // import cors from 'cors';
 // import Mail from './routes/mail.js';
 // Connect to the db
