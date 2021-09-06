@@ -46,7 +46,7 @@ function App() {
         name
       }
   
-     await axios.post('/mail', body, {
+     await axios.post('', body, {
         headers: {
           'Content-type': 'application/json'
         }

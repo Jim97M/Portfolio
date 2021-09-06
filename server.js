@@ -1,11 +1,9 @@
 import express from 'express';
 import mongoose from 'mongoose';
 
-import nodemailer from 'nodemailer';
-import { createRequire } from 'module';
+//import nodemailer from 'nodemailer';
 import path from 'path';
 // import creds from './nodemon.json'
- import path from 'path';
 //  import { fileURLToPath } from 'url';
  import serviceRouter from "./routes/service.router.js";
  import skillRouter from "./routes/skill.route.js";
@@ -15,10 +13,8 @@ import path from 'path';
  import portfolioRouter from "./routes/portfolio.route.js";
  import blogRouter from "./routes/blog.route.js";
 
-import { dir } from 'console';
-
 // const require = createRequire(import.meta.url)
-import creds from "./nodemon.json"
+//import creds from "./nodemon.json"
 //  const __filename = fileURLToPath(import.meta.url);
 //  const __dirname = dirname(__filename);
 // import cors from 'cors';
@@ -52,56 +48,56 @@ app.use('/api/', profileRouter);
 app.use('/api/', portfolioRouter);
 app.use('/api/', blogRouter);
 
-const transporter = nodemailer.createTransport({
-  host:"smtp.gmail.com",
-     port:587,
-     secure: false,
+// const transporter = nodemailer.createTransport({
+//   host:"smtp.gmail.com",
+//      port:587,
+//      secure: false,
     
-     auth: {
-       user: creds.auth.user,
-       pass: creds.auth.pass
-     },
-});
+//      auth: {
+//        user: creds.auth.user,
+//        pass: creds.auth.pass
+//      },
+// });
 
-app.post('/mail', (req, res, next) => {
-  const email = req.body.email
-  const message = req.body.message
-  const subject = req.body.subject
-  const name = req.body.name
+// app.post('/mail', (req, res, next) => {
+//   const email = req.body.email
+//   const message = req.body.message
+//   const subject = req.body.subject
+//   const name = req.body.name
 
-  const mailOptions = {
-    from: name,
-    to: email,
-    subject: subject,
-    html: `${name} from <noreply@${name}.com> <br /> <br /> ${message}`
-  }
-  transporter.sendMail(mailOptions, (err, data) => {
-    if(err){
-      res.json({
-        status: "err"
-      })
-      console.log(err)
-    }
-      else {
-        res.json({
-          status: "success"
-        })
-        console.log("Email Sent" + data.response)
-      }
-  })
-})
+//   const mailOptions = {
+//     from: name,
+//     to: email,
+//     subject: subject,
+//     html: `${name} from <noreply@${name}.com> <br /> <br /> ${message}`
+//   }
+//   transporter.sendMail(mailOptions, (err, data) => {
+//     if(err){
+//       res.json({
+//         status: "err"
+//       })
+//       console.log(err)
+//     }
+//       else {
+//         res.json({
+//           status: "success"
+//         })
+//         console.log("Email Sent" + data.response)
+//       }
+//   })
+// })
 
-transporter.verify(function(error, success){
-     if(error){
-       console.log(error);
-     } else {
-       console.log("Server is ready to take our message!");
-     }
-})
+// transporter.verify(function(error, success){
+//      if(error){
+//        console.log(error);
+//      } else {
+//        console.log("Server is ready to take our message!");
+//      }
+// })
 
-app.get("*", (req,res) => {
-  res.sendFile(path.join(__dirname, "frontend", "build"))
-});
+// app.get("*", (req,res) => {
+//   res.sendFile(path.join(__dirname, "frontend", "build"))
+// });
 
 
 //Declare a route
