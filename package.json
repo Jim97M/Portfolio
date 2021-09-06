@@ -5,10 +5,9 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "cd frontend && npm install --only=dev && npm install && npm run build",
-    "start": "nodemon server.js",
-    "server": "nodemon server.js --ignore"
+    "start": "node server.js",
+    "heroku-postbuild": "cd frontend && npm install --only=dev && npm install && npm run build"
+    
   },
   "engines": {
     "node": "14.17.5"
