@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 
 //import nodemailer from 'nodemailer';
 //import { createRequire } from 'module';
-import path from 'path';
+//import path from 'path';
 // import creds from './nodemon.json'
  //import path from 'path';
  //import { fileURLToPath } from 'url';
@@ -15,11 +15,6 @@ import path from 'path';
  import portfolioRouter from "./routes/portfolio.route.js";
  import blogRouter from "./routes/blog.route.js";
 
-import { dir } from 'console';
-
-const require = createRequire(import.meta.url)
-//const creds = require("./nodemon.json")
- // const __filename = fileURLToPath(import.meta.url);
   //const __dirname = dirname(__filename);
 // import cors from 'cors';
 // import Mail from './routes/mail.js';
