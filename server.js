@@ -2,9 +2,11 @@ import express from 'express';
 import mongoose from 'mongoose';
 
 //import nodemailer from 'nodemailer';
+//import { createRequire } from 'module';
 import path from 'path';
 // import creds from './nodemon.json'
-//  import { fileURLToPath } from 'url';
+ //import path from 'path';
+ //import { fileURLToPath } from 'url';
  import serviceRouter from "./routes/service.router.js";
  import skillRouter from "./routes/skill.route.js";
  import resumeRouter from "./routes/resume.route.js";
@@ -13,10 +15,12 @@ import path from 'path';
  import portfolioRouter from "./routes/portfolio.route.js";
  import blogRouter from "./routes/blog.route.js";
 
-// const require = createRequire(import.meta.url)
-//import creds from "./nodemon.json"
-//  const __filename = fileURLToPath(import.meta.url);
-//  const __dirname = dirname(__filename);
+import { dir } from 'console';
+
+const require = createRequire(import.meta.url)
+//const creds = require("./nodemon.json")
+ // const __filename = fileURLToPath(import.meta.url);
+  //const __dirname = dirname(__filename);
 // import cors from 'cors';
 // import Mail from './routes/mail.js';
 // Connect to the db
@@ -34,7 +38,7 @@ useFindAndModify: false
 
 const app = express();
   
-app.use(express.static(path.join(__dirname, "frontend", "build")));
+//app.use(express.static(path.join(__dirname, "frontend", "build")));
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -155,6 +159,9 @@ app.use('/api/', blogRouter);
 
 // })
 
+//app.get("*", (req, res) => {
+ // res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
+//})
 
 
 const PORT = 5000;
