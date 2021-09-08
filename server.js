@@ -1,12 +1,11 @@
 import express from 'express';
 import mongoose from 'mongoose';
-
+import dotenv from "dotenv";
 //import nodemailer from 'nodemailer';
 //import { createRequire } from 'module';
-//import path from 'path';
+import path, {dirname} from 'path';
 // import creds from './nodemon.json'
- //import path from 'path';
- //import { fileURLToPath } from 'url';
+ import { fileURLToPath } from 'url';
  import serviceRouter from "./routes/service.router.js";
  import skillRouter from "./routes/skill.route.js";
  import resumeRouter from "./routes/resume.route.js";
@@ -15,13 +14,14 @@ import mongoose from 'mongoose';
  import portfolioRouter from "./routes/portfolio.route.js";
  import blogRouter from "./routes/blog.route.js";
 
-  //const __dirname = dirname(__filename);
-// import cors from 'cors';
+ dotenv.config({path: "./.env"});
+ const __dirname = dirname(fileURLToPath(import.meta.url));
+
 // import Mail from './routes/mail.js';
 // Connect to the db
 
 
-mongoose.connect("mongodb+srv://portfolioUser:portfolioUserPass@cluster0.m2yys.mongodb.net/portfolio", {
+mongoose.connect(process.env.MONGO_URI, {
 useCreateIndex: true,
 keepAlive: 1,
 useNewUrlParser: true,
@@ -158,8 +158,15 @@ app.use('/api/', blogRouter);
  // res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
 //})
 
+if(process.env.NODE_ENV === "production"){
+  app.use(express.static(path.join(__dirname, '/frontend/build')))
+  app.get('*', (req,res) => {
+    res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
+  })
+}
 
-const PORT = process.env.PORT || 5000;
+
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
     console.log(`Server is running ${PORT}`);
 })
