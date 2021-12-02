@@ -15,32 +15,32 @@ function ServicesSection() {
                 <div className="services">
                     <ServiceCard 
                         image={design} 
-                        title={'Web Design'} 
+                        title={'Web Development'} 
                         paragraph={''}
                     />
                     <div className="mid-card">
                         <ServiceCard 
                             image={intelligence} 
-                            title={'Artificial Intelligence'} 
+                            title={'Training and Mapping Models'} 
                             paragraph={''}
                         />
                     </div>
                     <ServiceCard 
                         image={gamedev} 
-                        title={'Game Development'} 
+                        title={'USSD Development'} 
                         paragraph={''}
                     />
                     <div className="mid-card">
                         <ServiceCard 
                             image={intelligence} 
-                            title={'Artificial Intelligence'} 
+                            title={'Uploading and Hosting'} 
                             paragraph={''}
                     />
                     </div>
                     <div className="mid-card">
                         <ServiceCard 
                             image={intelligence} 
-                            title={'Artificial Intelligence'} 
+                            title={'Mobile Application Development'} 
                             paragraph={''}
                         />
                     </div>

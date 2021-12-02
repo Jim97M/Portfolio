@@ -2,8 +2,9 @@ import React from 'react'
 import styled from 'styled-components';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import GithubIcon from '@material-ui/icons/GitHub';
-import YoutubeIcon from '@material-ui/icons/YouTube';
-// import BitBucketIcon from '../img/bitbucket.png';
+//import YoutubeIcon from '@material-ui/icons/YouTube';
+import { mdiBitbucket } from '@mdi/js'; 
+import Icon from '@mdi/react'
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import Particle from '../Components/Particle';
 
@@ -19,22 +20,24 @@ function HomePage() {
                    I'm a 24year old Software Developer 
                 </p>
                 <div className="icons">
-                  <a href="ff" className="icon">
+                  <a href="https://www.linkedin.com/in/wabuya-james-323a9121a/" className="icon">
                         <LinkedInIcon />
                   </a>
                     <a href="ff" className="icon">
                         <TwitterIcon />
                     </a>
-                    <a href="ff" className="icon i-github">
+                    <a href="https://github.com/Jim97M/" className="icon i-bucket">
                         <GithubIcon />
                     </a>
-                    <a href="ff" className="icon i-github">
-                        <GithubIcon />
-                    </a>
-                    <a href="ff" className="icon i-youtube">
-                        <YoutubeIcon />
-                    </a>
-
+                    <a href="https://bitbucket.org/Jim97/" className="icon i-github">
+                    <Icon path={mdiBitbucket}
+                       size={1}
+                       horizontal
+                       vertical
+                       rotate={90}
+                       color="red"
+                       spin/>
+                 </a>
                 </div>
             </div>
         </HomePageStyled>
