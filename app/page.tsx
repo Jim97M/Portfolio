@@ -16,6 +16,8 @@ async function getPublishedProjects(): Promise<Project[]> {
   }
 }
 
+//PAge
+
 export default async function Home() {
   const projects = await getPublishedProjects();
 
