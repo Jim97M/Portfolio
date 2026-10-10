@@ -15,7 +15,7 @@ const adminProjectRoutes = require("./src/routes/adminProjects");
 const chatRoutes = require("./src/routes/chat");
 
 const app = express();
-const allowedOrigins = (process.env.CORS_ORIGIN || "http://localhost:3000")
+const allowedOrigins = `${process.env.CORS_ORIGIN || "http://localhost:3000"},https://jameswabuyaportfolio.vercel.app`
 	.split(",")
 	.map((origin) => origin.trim())
 	.filter(Boolean);
