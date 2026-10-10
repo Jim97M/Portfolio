@@ -1,13 +1,27 @@
 import Link from "next/link";
+import Image from "next/image";
+import Script from "next/script";
 import { blogPosts } from "./blog-posts";
 import type { Project } from "./admin/api";
 import PortfolioChat from "./components/PortfolioChat";
 
-async function getPublishedProjects(): Promise<Project[]> {
-  const apiUrl = (process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000").replace(/\/$/, "");
+const API_BASE_URL = (process.env.NEXT_PUBLIC_API_URL || "https://portfolio.waridi.org").replace(/\/$/, "");
+
+function getProjectImageUrl(imageUrl: string | null): string | undefined {
+  if (!imageUrl) return undefined;
 
   try {
-    const response = await fetch(`${apiUrl}/api/projects`, { signal: AbortSignal.timeout(2500) });
+    const parsedUrl = new URL(imageUrl, API_BASE_URL);
+    if (parsedUrl.origin !== new URL(API_BASE_URL).origin || !parsedUrl.pathname.startsWith("/uploads/")) return undefined;
+    return `/api/project-image${parsedUrl.pathname.slice("/uploads".length)}`;
+  } catch {
+    return undefined;
+  }
+}
+
+async function getPublishedProjects(): Promise<Project[]> {
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/projects`, { signal: AbortSignal.timeout(2500) });
     if (!response.ok) return [];
     const result = await response.json() as { projects?: Project[] };
     return Array.isArray(result.projects) ? result.projects : [];
@@ -16,24 +30,27 @@ async function getPublishedProjects(): Promise<Project[]> {
   }
 }
 
-//PAge
 
 export default async function Home() {
   const projects = await getPublishedProjects();
 
   return (
     <main>
+      <Script
+        src="https://play.vidyard.com/embed/v4.js"
+        strategy="afterInteractive"
+      />
       <div className="site-shell">
         <header className="site-header">
-          <a className="wordmark" href="#top" aria-label="Alex Morgan, home">
-            <span className="wordmark-mark">AM</span>
-            <span>Alex Morgan</span>
+          <a className="wordmark" href="#top" aria-label="James Wabuya, home">
+            <span className="wordmark-mark">JW</span>
+            <span>James Wabuya</span>
           </a>
           <nav className="main-nav" aria-label="Main navigation">
             <a href="#work">Work</a>
             <Link href="/blog">Writing</Link>
             <a href="#about">About</a>
-            <a className="nav-contact" href="mailto:hello@alexmorgan.dev">
+            <a className="nav-contact" href="mailto:wabuyajames@gmail.com">
               Let&apos;s talk <span aria-hidden="true">↗</span>
             </a>
           </nav>
@@ -85,9 +102,7 @@ export default async function Home() {
           {projects.length > 0 ? (
             <div className="project-grid">
               {projects.map((project, index) => {
-                const imageUrl = project.imageUrl
-                  ? `${(process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000").replace(/\/$/, "")}${project.imageUrl}`
-                  : undefined;
+                const imageUrl = getProjectImageUrl(project.imageUrl);
 
                 return (
                   <article className={`portfolio-project${project.featured ? " is-featured" : ""}`} key={project.id}>
@@ -147,9 +162,22 @@ export default async function Home() {
           <div className="about-layout">
             <h2 id="about-title">Clear thinking.<br /><span className="serif-italic">Reliable systems.</span></h2>
             <div className="about-copy">
-              <p>I’m Alex, a senior software engineer focused on backend systems, platform engineering, and distributed architecture. I work from technical direction through implementation and production operations.</p>
+              <div className="about-video-frame">
+                <Image
+                  alt="My Software Engineering Journey: Skills and Projects"
+                  className="vidyard-player-embed"
+                  data-type="inline"
+                  data-uuid="G68UZ5K7yjekcGjGPqjh5c"
+                  data-v="4"
+                  height={576}
+                  src="https://play.vidyard.com/G68UZ5K7yjekcGjGPqjh5c.jpg"
+                  unoptimized
+                  width={1280}
+                />
+              </div>
+              <p>I’m James Masika Wabuya, a senior software engineer with over five years of experience. I’ve designed complex architectures, developed multiple products used in the market, and led a team of four developers.</p>
               <p>I value pragmatic design, calm incident response, and helping teams make sound decisions without adding unnecessary complexity.</p>
-              <a className="text-link" href="mailto:hello@alexmorgan.dev">Discuss an engineering role <span aria-hidden="true">↗</span></a>
+              <a className="text-link" href="mailto:wabuyajames@gmail.com">Discuss an engineering role <span aria-hidden="true">↗</span></a>
             </div>
           </div>
           <div className="services-row" aria-label="Services">
@@ -158,11 +186,11 @@ export default async function Home() {
         </section>
 
         <footer className="site-footer">
-          <a className="footer-invite" href="mailto:hello@alexmorgan.dev">Let&apos;s build<br /><span>something lasting.</span> <span className="footer-arrow" aria-hidden="true">↗</span></a>
+          <a className="footer-invite" href="mailto:wabuyajames@gmail.com">Let&apos;s build<br /><span>something lasting.</span> <span className="footer-arrow" aria-hidden="true">↗</span></a>
           <div className="footer-bottom">
-            <a className="wordmark" href="#top"><span className="wordmark-mark">AM</span><span>Alex Morgan</span></a>
+            <a className="wordmark" href="#top"><span className="wordmark-mark">JW</span><span>James Wabuya</span></a>
             <span>Senior software engineer · Backend &amp; platform</span>
-            <a href="mailto:hello@alexmorgan.dev">hello@alexmorgan.dev</a>
+            <a href="mailto:wabuyajames@gmail.com">wabuyajames@gmail.com</a>
             <Link href="/sign-in">Admin</Link>
             <span>© 2026</span>
           </div>

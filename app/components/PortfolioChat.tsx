@@ -15,7 +15,26 @@ type Message = {
   suggestions?: string[];
 };
 
-const quickQuestions = ["Explore projects", "Read the blog", "Ask about Alex’s experience", "Contact Alex"];
+function normalizeChatCopy(value: string): string {
+  return value
+    .replace(/\bAlex Morgan\b/gi, "James Masika Wabuya")
+    .replace(/\bAlex\b/gi, "James")
+    .replace(/hello@alexmorgan\.dev/gi, "wabuyajames@gmail.com");
+}
+
+function normalizeChatResponse(response: ChatResponse): ChatResponse {
+  return {
+    ...response,
+    reply: normalizeChatCopy(response.reply),
+    links: response.links?.map((link) => ({
+      label: normalizeChatCopy(link.label),
+      href: normalizeChatCopy(link.href),
+    })),
+    suggestions: response.suggestions?.map(normalizeChatCopy),
+  };
+}
+
+const quickQuestions = ["Explore projects", "Read the blog", "Ask about James’s experience", "Contact James"];
 const greetingPattern = /^(hi|hello|hey|good morning|good afternoon|good evening)\b/i;
 const greetingReply = "Hi, how may I help you today?";
 
@@ -75,12 +94,13 @@ export default function PortfolioChat() {
         body: JSON.stringify({ message: trimmedQuestion }),
         signal: AbortSignal.timeout(8000),
       });
+      const normalizedResult = normalizeChatResponse(result);
       setMessages((currentMessages) => [...currentMessages, {
         id: crypto.randomUUID(),
         sender: "assistant",
-        text: result.reply,
-        links: result.links,
-        suggestions: result.suggestions,
+        text: normalizedResult.reply,
+        links: normalizedResult.links,
+        suggestions: normalizedResult.suggestions,
       }]);
     } catch (error) {
       const detail = error instanceof Error && !error.message.startsWith("Cannot reach the API")
@@ -89,8 +109,8 @@ export default function PortfolioChat() {
       setMessages((currentMessages) => [...currentMessages, {
         id: crypto.randomUUID(),
         sender: "assistant",
-        text: `I can’t look that up right now.${detail} Please try again shortly, or contact Alex directly.`,
-        links: [{ label: "Email Alex", href: "mailto:hello@alexmorgan.dev" }],
+        text: `I can’t look that up right now.${detail} Please try again shortly, or contact James directly.`,
+        links: [{ label: "Email James", href: "mailto:wabuyajames@gmail.com" }],
       }]);
     } finally {
       setIsSending(false);
@@ -112,7 +132,7 @@ export default function PortfolioChat() {
           role="dialog"
         >
           <header className="chat-header">
-            <div className="chat-header-mark" aria-hidden="true">AM</div>
+            <div className="chat-header-mark" aria-hidden="true">JW</div>
             <div className="chat-header-copy">
               <h2 id="portfolio-chat-title">Portfolio assistant</h2>
               <p><span className="chat-online-dot" /> Here to point you in the right direction</p>
@@ -157,7 +177,7 @@ export default function PortfolioChat() {
               autoFocus
               id="portfolio-chat-input"
               onChange={(event) => setInput(event.target.value)}
-              placeholder="Ask about Alex’s work…"
+              placeholder="Ask about James’s work…"
               disabled={isSending}
               value={input}
             />
@@ -176,7 +196,7 @@ export default function PortfolioChat() {
         type="button"
       >
         <span className="chat-launcher-icon" aria-hidden="true" />
-        <span className="chat-launcher-label">Ask Alex</span>
+        <span className="chat-launcher-label">Ask James</span>
       </button>
     </div>
   );

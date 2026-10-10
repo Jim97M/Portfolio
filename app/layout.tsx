@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Alex Morgan — Senior Software Engineer",
+  title: "James Wabuya — Senior Software Engineer",
   description:
-    "Alex Morgan is a senior software engineer focused on backend systems, platform engineering, and distributed architecture.",
+    "James Wabuya is a senior software engineer focused on backend systems, platform engineering, and distributed architecture.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

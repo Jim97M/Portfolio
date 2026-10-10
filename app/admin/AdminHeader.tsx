@@ -20,8 +20,8 @@ export default function AdminHeader({ user, active }: AdminHeaderProps) {
   return (
     <header className="admin-header">
       <div className="admin-header-brand">
-        <Link className="wordmark" href="/" aria-label="Alex Morgan, home">
-          <span className="wordmark-mark">AM</span><span>Alex Morgan</span>
+        <Link className="wordmark" href="/" aria-label="James Wabuya, home">
+          <span className="wordmark-mark">JW</span><span>James Wabuya</span>
         </Link>
         <span className="admin-header-divider" />
         <span className="admin-header-title">CONTENT DESK</span>

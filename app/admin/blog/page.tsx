@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BlogEditor from "./BlogEditor";
 
 export const metadata: Metadata = {
-  title: "Blog administration — Alex Morgan",
+  title: "Blog administration — James Wabuya",
   robots: { index: false, follow: false },
 };
 

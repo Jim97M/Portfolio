@@ -3,7 +3,7 @@ import Link from "next/link";
 import SignInForm from "./SignInForm";
 
 export const metadata: Metadata = {
-  title: "Admin sign in — Alex Morgan",
+  title: "Admin sign in — James Wabuya",
   robots: { index: false, follow: false },
 };
 
@@ -11,9 +11,9 @@ export default function SignInPage() {
   return (
     <main className="admin-auth-page">
       <header className="admin-auth-header">
-        <Link className="wordmark" href="/" aria-label="Alex Morgan, home">
-          <span className="wordmark-mark">AM</span>
-          <span>Alex Morgan</span>
+        <Link className="wordmark" href="/" aria-label="James Wabuya, home">
+          <span className="wordmark-mark">JW</span>
+          <span>James Wabuya</span>
         </Link>
         <span className="admin-auth-label">PRIVATE AREA / 01</span>
       </header>
@@ -24,7 +24,7 @@ export default function SignInPage() {
         <SignInForm />
         <Link className="auth-back-link" href="/">← Back to portfolio</Link>
       </section>
-      <footer className="auth-footer"><span>PRIVATE / AUTHORIZED USERS ONLY</span><span>© 2026 ALEX MORGAN</span></footer>
+      <footer className="auth-footer"><span>PRIVATE / AUTHORIZED USERS ONLY</span><span>© 2026 James Wabuya</span></footer>
     </main>
   );
 }

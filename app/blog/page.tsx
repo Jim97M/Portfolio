@@ -4,9 +4,9 @@ import { blogPosts } from "../blog-posts";
 import PortfolioChat from "../components/PortfolioChat";
 
 export const metadata: Metadata = {
-  title: "Writing — Alex Morgan, Senior Software Engineer",
+  title: "Writing — James Wabuya, Senior Software Engineer",
   description:
-    "Notes on system design, production operations, and developer experience from Alex Morgan.",
+    "Notes on system design, production operations, and developer experience from James Wabuya.",
 };
 
 export default function BlogPage() {
@@ -14,15 +14,15 @@ export default function BlogPage() {
     <main id="top">
       <div className="site-shell">
         <header className="site-header">
-          <Link className="wordmark" href="/" aria-label="Alex Morgan, home">
-            <span className="wordmark-mark">AM</span>
-            <span>Alex Morgan</span>
+          <Link className="wordmark" href="/" aria-label="James Wabuya, home">
+            <span className="wordmark-mark">JW</span>
+            <span>James Wabuya</span>
           </Link>
           <nav className="main-nav" aria-label="Main navigation">
             <Link href="/#work">Work</Link>
             <Link href="/blog" aria-current="page">Writing</Link>
             <Link href="/#about">About</Link>
-            <a className="nav-contact" href="mailto:hello@alexmorgan.dev">
+            <a className="nav-contact" href="mailto:wabuyajames@gmail.com">
               Let&apos;s talk <span aria-hidden="true">↗</span>
             </a>
           </nav>
@@ -36,7 +36,7 @@ export default function BlogPage() {
           <p className="blog-page-summary">
             Practical ideas on system design, production operations, and building platforms that help teams do their best work.
           </p>
-          <a className="text-link" href="mailto:hello@alexmorgan.dev?subject=Writing%20and%20video">
+          <a className="text-link" href="mailto:wabuyajames@gmail.com?subject=Writing%20and%20video">
             Suggest a topic <span aria-hidden="true">↗</span>
           </a>
         </section>
@@ -67,11 +67,11 @@ export default function BlogPage() {
         </section>
 
         <footer className="site-footer">
-          <a className="footer-invite" href="mailto:hello@alexmorgan.dev">Let&apos;s build<br /><span>something lasting.</span> <span className="footer-arrow" aria-hidden="true">↗</span></a>
+          <a className="footer-invite" href="mailto:wabuyajames@gmail.com">Let&apos;s build<br /><span>something lasting.</span> <span className="footer-arrow" aria-hidden="true">↗</span></a>
           <div className="footer-bottom">
-            <Link className="wordmark" href="/"><span className="wordmark-mark">AM</span><span>Alex Morgan</span></Link>
+            <Link className="wordmark" href="/"><span className="wordmark-mark">JW</span><span>James Wabuya</span></Link>
             <span>Senior software engineer · Backend &amp; platform</span>
-            <a href="mailto:hello@alexmorgan.dev">hello@alexmorgan.dev</a>
+            <a href="mailto:wabuyajames@gmail.com">wabuyajames@gmail.com</a>
             <span>© 2026</span>
           </div>
         </footer>
