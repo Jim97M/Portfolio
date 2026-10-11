@@ -4,7 +4,7 @@ import { blogPosts } from "../blog-posts";
 import PortfolioChat from "../components/PortfolioChat";
 
 export const metadata: Metadata = {
-  title: "Writing — James Wabuya, Senior Software Engineer",
+  title: "Writing — James Masika Wabuya, Senior Software Engineer",
   description:
     "Notes on system design, production operations, and developer experience from James Wabuya.",
 };
