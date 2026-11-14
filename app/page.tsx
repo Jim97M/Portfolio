@@ -21,7 +21,10 @@ function getProjectImageUrl(imageUrl: string | null): string | undefined {
 
 async function getPublishedProjects(): Promise<Project[]> {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/projects`, { signal: AbortSignal.timeout(2500) });
+    const response = await fetch(`${API_BASE_URL}/api/projects`, {
+      cache: "no-store",
+      signal: AbortSignal.timeout(2500),
+    });
     if (!response.ok) return [];
     const result = await response.json() as { projects?: Project[] };
     return Array.isArray(result.projects) ? result.projects : [];
