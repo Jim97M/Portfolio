@@ -39,7 +39,7 @@ app.use("/uploads/blog", express.static(path.resolve(__dirname, "uploads/blog"),
 	dotfiles: "deny",
 	index: false,
 	maxAge: "1d",
-	fallthrough: false,
+	fallthrough: true,
 }));
 
 app.get("/api/health", async (_req, res) => {

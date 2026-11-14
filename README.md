@@ -65,6 +65,8 @@ For `PATCH`, set `removeCoverImage`, `removeVideo`, `removeVideoPoster`, or `rem
 
 Project create/update fields are `title`, `slug` (optional; generated from the title), `role`, `summary`, `description`, `techStack` (comma-separated values), `liveUrl`, `sourceUrl`, `featured`, `sortOrder`, and `status`. Send an optional cover image in the `image` file field. `PATCH` accepts `removeImage=true`. Only published projects appear on the public portfolio; featured projects sort first, followed by display order.
 
+Uploaded blog and project media is stored on the API server under `uploads/blog`, so keep that directory persistent across deployments. Replacing media creates a new filename and removes the old file; an already-open page may still request the old URL and receive a 404.
+
 The chat endpoint accepts `POST /api/chat` with JSON `{ "message": "What technologies were used on the payments project?" }`. It returns a concise reply, links, and suggested follow-ups from published database content only. It does not send visitor questions to an external AI provider. Requests are limited to 30 per IP per 15 minutes.
 
 ## Environment variables
