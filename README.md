@@ -23,7 +23,7 @@ Express 5 API for the portfolio site. It uses Sequelize migrations, PostgreSQL b
    npm run dev
    ```
 
-The API listens on `http://localhost:4000` by default. Set `CORS_ORIGIN` to the frontend origin. PostgreSQL is the default; for MySQL set `DB_DIALECT=mysql` and `DB_PORT=3306`. To use managed TLS, set `DB_SSL=true`.
+The API listens on `http://localhost:4000` by default. Set `CORS_ORIGIN` to the frontend origin. When deployed behind a single trusted reverse proxy, the app trusts one proxy hop for the client IP used by rate limiting. Keep the API port accessible only through that proxy; if your deployment uses a different proxy topology, adjust the `trust proxy` setting in `index.js` accordingly. PostgreSQL is the default; for MySQL set `DB_DIALECT=mysql` and `DB_PORT=3306`. To use managed TLS, set `DB_SSL=true`.
 
 Migrations create `users`, `roles`, `user_roles`, `blog_posts`, and `projects`. The first migration inserts `admin` and `editor` roles. There is no automatic schema synchronization or public user registration.
 
